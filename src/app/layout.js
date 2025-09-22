@@ -2,10 +2,11 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin", "cyrillic"], // для кириллицы
+  subsets: ["latin", "cyrillic"], // кириллица (если субсет поддерживается)
 });
 
 const geistMono = Geist_Mono({
@@ -35,14 +36,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ru" className="h-full">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50`}
       >
-        <Header /> {/* шапка на всех страницах */}
-        <main className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          {children}
-        </main>
+        {/* Колонка на всю высоту, чтобы футер прилипал к низу */}
+        <div className="flex min-h-screen flex-col">
+          <Header /> {/* шапка на всех страницах */}
+          <main className="mx-auto max-w-[1200px] flex-1 px-4 sm:px-6 lg:px-8">
+            {children}
+          </main>
+          <Footer /> {/* футер на всех страницах */}
+        </div>
       </body>
     </html>
   );
 }
-

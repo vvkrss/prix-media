@@ -4,7 +4,6 @@ import Link from "next/link";
 const NAV = [
   { href: "/materials", label: "Материалы" },
   { href: "/about", label: "О нас" },
-  { href: "/advertising", label: "Реклама" },
 ];
 
 export default function Header({ sticky = true }) {

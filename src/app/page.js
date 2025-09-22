@@ -181,12 +181,6 @@ export default async function Page() {
           >
             О медиа
           </Link>
-          <Link
-            href="/advertising"
-            className="inline-flex items-center justify-center rounded-xl border border-zinc-300 px-4 py-2 text-sm font-medium hover:bg-zinc-50 dark:border-zinc-700 dark:hover:bg-zinc-800"
-          >
-            Реклама у нас
-          </Link>
         </div>
       </header>
 
@@ -232,10 +226,6 @@ export default async function Page() {
           </div>
         </div>
       </div>
-
-      <footer className="mt-14 border-t border-zinc-200 pt-6 text-xs text-zinc-500 dark:border-zinc-800 dark:text-zinc-400 sm:text-sm">
-        © {new Date().getFullYear()} PRIX Media. Все права защищены.
-      </footer>
     </main>
   );
 }
